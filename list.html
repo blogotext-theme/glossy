@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr-fr">
+<html lang="fr">
 <head>
 	<meta charset="UTF-8" />
 	<title>{article_titre_page}{blog_nom}</title>
@@ -8,83 +8,84 @@
 	<meta name="keywords" content="{keywords}" />
 	<meta name="Generator" content="BlogoText" />
 	<meta name="viewport" content="width=device-width, user-scalable=yes" />
-	<link rel="alternate" type="application/rss+xml" title="les billets du blog" href="rss.php" />
-	<link rel="alternate" type="application/rss+xml" title="les liens partagés" href="rss.php?mode=links" />
-	<link rel="alternate" type="application/rss+xml" title="Commentaires sur tout le blog" href="rss.php?mode=comments" />
-	<link rel="stylesheet" type="text/css" href='{style}/style.css' media="all"/>
-	<style type="text/css">
-	#email-adress { display: none!important; }
-	</style>
-
+	<link rel="icon" type="image/png" href="{style}/images/favicon.png" />
+	<link rel="apple-touch-icon" href="{style}/images/apple-touch-icon.png">
+	<link rel="canonical" href="{racine_du_site}" />
+	<link rel="image_src" href="{style}/images/apple-touch-icon.png" />
+	<meta itemprop="name" content="{article_titre}" />
+	<meta itemprop="description" content="{article_chapo}" />
+	<meta itemprop="image" content="{style}/images/apple-touch-icon.png">
+	<meta property="og:title" content="{article_titre_page}{blog_nom}" />
+	<meta property="og:url" content="{racine_du_site}" />
+	<meta property="og:description" content="{blog_description}" />
+	<meta property="og:site_name" content="{blog_nom}" />
+	<meta property="og:locale" content="fr_FR" />
+	<meta property="og:image" content="{style}/images/apple-touch-icon.png" />
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="{style}/images/apple-touch-icon.png">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<link type="text/css" rel="stylesheet" href="{style}/style.css" />
+	<link type="application/rss+xml" rel="alternate" title="RSS 2.0 - Articles" href="{rss}" />
 </head>
 <body id="top">
-
-<header id="entete">
-	<h1><a href="{racine_du_site}">{blog_nom}</a></h1>
-	<h2>{blog_description}</h2>
-	<div id="menu-wrap">
-		<div id="menu">
-			{recherche}
-			<div class="sous-menu">
-				<a href="#">Lien 1</a>
-				<a href="#">Lien 2</a>
-				<a href="#">Lien 3</a>
-				<a href="#">Lien 4</a>
+	<header id="entete">
+		<h1><a href="{racine_du_site}" title="">{blog_nom}</a></h1>
+		<h2>{blog_description}</h2>
+		<div id="menu-wrap">
+			<div id="menu">
+				{recherche}
+				<div class="sous-menu">
+					<a href="#" title="">Lien 1</a>
+					<a href="#" title="">Lien 2</a>
+					<a href="#" title="">Lien 3</a>
+					<a href="#" title="">Lien 4</a>
+				</div>
+				<br class="menuclearfix" />
 			</div>
-			<br class="menuclearfix" />
 		</div>
-	</div>
-</header> <!-- end #entete -->
-
-<!--  Partie principale  -->
-
-<div id="main">
-
-	<section id="midle">
-		<div id="posts">
-		{BOUCLE_posts}
-			blogotext posts
-		{/BOUCLE_posts}
-		</div> <!-- end postS -->
-
-	{pagination}
-
-	</section> <!-- end midle  -->
-
-
-	<section id="sidebar">
-		<nav class="calendar">
-		<h4>rechercher les messages</h4>
-			{calendrier}
-			<br/>
-			<form action="index.php" method="get"><button type="submit" name="random">Un article au hasard ?</button></form>
-		</nav>
-		<nav class="rss">
-		<h4>ﬂux RSS</h4>
-			<ul id="rss">
-				<li><a href="rss.php">RSS</a> : Blog</li>
-				<li><a href="rss.php?mode=links">RSS</a> : Liens</li>
-			</ul>
-		</nav>
-
-		<nav class="lastcoms">
-		<h4>derniers commentaires</h4>
-			{commentaires_encart}
-		</nav>
-	</section><!-- end colonne de gauche -->
-</div><!-- end main -->
-
-<!-- footer -->
-<footer id="footer">
-	<b>{blog_auteur}</b>, tous droits réservés – Publié avec <a href="http://lehollandaisvolant.net/blogotext/">BlogoText</a> – Thème par <a href="http://lehollandaisvolant.net/">Timo van Neerden</a>
-</footer>
+	</header> <!-- end #entete -->
+	<!--  Partie principale  -->
+	<div id="main">
+		<aside id="sidebar">
+			<nav class="calendar">
+			<h4>rechercher les messages</h4>
+				{calendrier}
+				<br/>
+				<form action="index.php" method="get"><button type="submit" name="random">Un article au hasard ?</button></form>
+			</nav>
+			<nav class="rss">
+			<h4>ﬂux RSS</h4>
+				<ul id="rss">
+					<li><a href="rss.php" title="">RSS</a> : Blog</li>
+					<li><a href="rss.php?mode=links" title="">RSS</a> : Liens</li>
+				</ul>
+			</nav>
+			<nav class="lastcoms">
+			<h4>derniers commentaires</h4>
+				{commentaires_encart}
+			</nav>
+		</aside><!-- end colonne de gauche -->
+		<section id="midle">
+			<div id="posts">
+				{BOUCLE_posts}
+					blogotext posts
+				{/BOUCLE_posts}
+			</div> <!-- end postS -->
+		{pagination}
+		</section> <!-- end midle  -->
+		<br style="clear:both;" />
+	</div><!-- end main -->
+	<!-- footer -->
+	<footer id="footer">
+		<b>{blog_auteur}</b>, tous droits réservés – Publié avec <a href="http://lehollandaisvolant.net/blogotext/" title="">BlogoText</a> – Thème par <a href="http://lehollandaisvolant.net/" title="">Timo van Neerden</a>
+	</footer>
 <script type="text/javascript">
 /* Tag script found at : http://www.siteduzero.com/tutoriel-3-34703-insertion-de-balises-dans-une-zone-de-texte.html */
 function insertTag(startTag, endTag, tag, tagType) {
 	var field = document.getElementById(tag);
 	var scroll = field.scrollTop;
 	field.focus();
-
 	if (window.ActiveXObject) { // C'est IE
 		var textRange = document.selection.createRange();            
 		var currentSelection = textRange.text;
@@ -104,7 +105,6 @@ function insertTag(startTag, endTag, tag, tagType) {
 	}
 	field.scrollTop = scroll;
 }
-
 function reply(code) {
 	var field = document.getElementById('form-commentaire').getElementsByTagName('textarea')[0];
 	field.focus();
@@ -115,7 +115,6 @@ function reply(code) {
 	field.scrollTop = 10000;
 	field.focus();
 }
-
 function resize(id, dht) {
 	var elem = document.getElementById(id);
 	var ht = elem.offsetHeight;
@@ -123,8 +122,6 @@ function resize(id, dht) {
 	elem.style.height = size+"px";
 	return false;
 }
-
 </script>
-
 </body>
 </html>
